@@ -1,0 +1,38 @@
+<!DOCTYPE hmtl>
+<html lang="fr">
+
+	<!-- 
+		BUT : SE CONNECTER A LA BASE DE DONNEES 
+		ENTREE : IDENTIFIANT ET MOT DE PASSE UTILISATEUR
+		SORTIE : CONNECTION ET ACCES AU MENU
+	-->
+	
+	<head>
+		<meta charset="utf-8">
+		<title>Connexion BDD</title>
+		<link rel="stylesheet" href="webApp_style.css"/>
+	</head>
+
+	<body>		
+		<form action="webApp_gestion_connexion.php" method="POST">
+			<h1>Bonjour, veuillez vous identifier, s'il-vous-plaît.</h1>
+			
+			<p>
+				<label for="conn_name">Nom d'utilisateur : </label><br/>
+				<input type="text" name="conn_name" required="true"/>
+			</p>
+			
+			<p>
+				<label for="conn_password">Mot de passe : </label><br/>
+				<input type="password" name="conn_password" required="true"/>
+			</p>
+			
+			<p>
+				<input type="submit" value="Se connecter" />
+			</p>
+		</form>
+		
+		<script src="script.js"></script>
+	</body>
+	
+</html> 

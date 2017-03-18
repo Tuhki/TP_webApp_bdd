@@ -1,0 +1,296 @@
+<! DOCTYPE html>
+	
+	<!--
+		BUT 	: PERMETTRE A L'UTILISATEUR DE METTRE A JOUR LA BASE DE DONNEES
+		ENTREE 	: INFORMATIONS SAISIES PAR L'UTILISATEUR
+		SORTIE	: APPEL DU FICHIER PHP GERANT L'IMPLEMENTATION DES DONNEES DANS LA BASE
+	-->
+	
+	<head>
+		<meta charset="utf-8">
+		<title>Application gestion BDD</title>
+		<link rel="stylesheet" type="text/css" href="webApp_style.css" media="screen"/>
+	</head>
+	
+	<body>
+		<h3>Ici vous pouvez ajouter ou modifier des données en cliquant sur la catégorie de votre choix.</h3>
+		<p>
+			Pour modifier, assurez-vous que le bouton "modifier" soit coché puis
+			entrez toutes les valeurs actuelles, y compris le numéro client,
+			et ne remplissez que les champs nécessaires avec les nouvelles valeurs, 
+			dans la partie adéquate.
+		</p>
+		<p>	
+			Pour ajouter, cocher le bouton "ajouter" puis
+			remplissez le formulaire avec les données à ajouter uniquement dans la partie "Valeurs Actuelles".
+		</p>
+		
+		<ul class="menu" id = "maj"  >
+
+			<!-- CLIENTS -->
+			
+			<li id="visu_li1">Clients</li>
+				<form class="li_form" id="visu_li1_form" action="webApp_gestion_modification_clients.php" method="POST">
+					
+					<input type="radio" name="choix_cli" value="Modification" checked /> Modifier<br/>
+					<input type="radio" name="choix_cli" value="Ajout" /> Ajouter<br/>
+					
+					<div style = "margin : 20px;" >
+						<table style = "border : 3px green solid;" >
+							<tr>
+								<th>
+									Valeurs actuelles
+								</th>
+								
+								<th>
+									Nouvelles valeurs
+								</th>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="nomcli">Nom du client : </label><br/>
+									<input type="text" name="nomcli" required />
+								</td>
+								
+								<td>
+									<label for="new_nomcli">Nouveau nom du client : </label><br/>
+									<input type="text" name="new_nomcli" />
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="pnomcli">Prénom du client : </label><br/>
+									<input type="text" name="pnomcli" required />
+								</td>
+								
+								<td>
+									<label for="new_pnomcli">Nouveau prénom du client : </label><br/>
+									<input type="text" name="new_pnomcli" />
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="adrcli">Adresse du client : </label><br/>
+									<input type="text" name="adrcli" required/>
+								</td>
+								
+								<td>
+									<label for="new_adrcli">Nouvelle adresse du client : </label><br/>
+									<input type="text" name="new_adrcli" />
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="cpcli">Code postal du client : </label><br/>
+									<input type="text" name="cpcli" required />
+								</td>
+								
+								<td>
+									<label for="new_cpcli">Nouveau code postal : </label><br/>
+									<input type="text" name="new_cpcli" />
+								</td>
+							</tr>
+								
+							<tr>
+								<td>
+									<label for="villecli">Ville du client : </label><br/>
+									<input type="text" name="villecli" required />
+								</td>
+								
+								<td>
+									<label for="new_villecli">Nouvelle ville : </label><br/>
+									<input type="text" name="new_villecli" />
+								</td>	
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="payscli">Pays du client : </label><br/>
+									<input type="text" name="payscli" required/>
+								</td>
+								
+								<td>
+									<label for="new_payscli">Nouveau pays : </label><br/>
+									<input type="text" name="new_payscli" />
+								</td>
+							</tr>
+						</table>
+					</div>
+					<p>
+						<input type="submit" value="Envoyer" />
+					</p>
+				</form>
+				
+		<!-- COMMANDES -->	
+			
+			<li id="visu_li2">Commandes</li>
+				<form class="li_form" id="visu_li2_form" action="webApp_gestion_modification_commandes.php" method="POST">
+					
+					<input type="radio" name="choix_comm" value="Modification" checked /> Modifier<br/>
+					<input type="radio" name="choix_comm" value="Ajout" /> Ajouter<br/>
+					
+					<div style = "margin : 20px;" >
+						<table style = "border : 3px green solid;" >
+							
+							<tr>
+								<th>
+									Valeurs actuelles
+								</th>
+								
+								<th>
+									Nouvelles valeurs
+								</th>
+							</tr>
+							
+							<tr>
+								<td>
+								<label for="numfacture">Numéro de facture : </label><br/>
+								<input type="text" name="numfacture" required />
+								</td>
+								
+								<td>
+								<!-- En cas d'ajout de nouvelle facture, le numéro s'implémente tout seul
+										Il n'est pas modifiable, car clé étrangère et unique -->
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="numprod">Numéro de produit : </label><br/>
+									<input type="text" name="numprod" required />
+								</td>
+								
+								<td>
+									<!-- Clé étrangère impossible à modifier -->
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="qprod">Quantité de produit : </label><br/>
+									<input type="text" name="qprod" />
+								</td>
+								
+								<td>
+									<label for="new_qprod">Nouvelle quantité : </label><br/>
+									<input type="text" name="new_qprod" />
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+					<p>
+						<input type="submit" value="Envoyer" />
+					</p>
+				</form>
+				
+			<!-- FACTURES -->	
+		
+			<li id="visu_li3">Factures</li>
+				<form class="li_form" id="visu_li3_form" action="webApp_gestion_modification_factures.php" method="POST">
+					
+					<div style = "margin : 20px;" >
+						<table style = "border : 3px green solid;" >
+							<tr>
+								<th>
+									Ajouter une facture
+								</th>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="idcli">Numéro de client : </label><br/>
+									<input type="text" name="idcli" required />
+								</td>	
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="datefacture">Date de facturation : </label><br/>
+									<input type="text" name="datefacture" required />
+								</td>
+							</tr>
+						</table>
+					</div>
+					<p>
+						<input type="submit" value="Envoyer" />
+					</p>
+					
+				</form>
+			
+			<!-- PRODUITS -->	
+				
+			<li id="visu_li4">Produits</li>
+				<form class="li_form" id="visu_li4_form" action="webApp_gestion_modification_produits.php" method="POST">
+					
+					<input type="radio" name="choix_prod" value="Modification" checked /> Modifier<br/>
+					<input type="radio" name="choix_prod" value="Ajout" /> Ajouter<br/>
+					
+					<div style = "margin : 20px;" >
+						<table style = "border : 3px green solid;" >
+							<tr>
+								<th>
+									Valeurs actuelles
+								</th>
+								
+								<th>
+									Nouvelles valeurs
+								</th>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="idprod">Numéro de produit : </label><br/>
+									<input type="text" name="idprod" />
+								</td>
+								
+								<td>
+									<!-- Valeur auto-incrémentée -->
+								</td>
+							</tr>
+								
+							<tr>
+								<td>
+									<label for="nomprod">Nom de produit : </label><br/>
+									<input type="text" name="nomprod" required />
+								</td>
+								
+								<td>
+									<label for="new_nomprod">Nouveau libellé : </label><br/>
+									<input type="text" name="new_nomprod" />
+								</td>
+							</tr>
+								
+							<tr>
+								<td>
+									<label for="prixprod">Prix unitaire HT : </label><br/>
+									<input type="text" name="prixprod" required />
+								</td>
+								
+								<td>
+									<label for="new_prixprod">Nouveau PUHT : </label><br/>
+									<input type="text" name="new_prixprod" />
+								</td>
+							</tr>
+						</table>
+					</div>
+					<p>
+						<input type="submit" value="Envoyer" />
+					</p>
+				</form>
+		</ul>
+		
+		<footer>
+			<a href = "webApp_page_utilisateur.html" >Revenir au menu principal.</a>
+		</footer>
+		
+		<!-- Intégration du script javascript et jquery pour l'animation du menu déroulant -->
+		<script src="jquery.min.js"></script>
+		<script src="script.js"></script>
+		
+	</body>
+</html>

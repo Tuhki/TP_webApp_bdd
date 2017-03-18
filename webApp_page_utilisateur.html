@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+	<!--
+		BUT 	: PERMETTRE A L'UTILISATEUR D'INTERAGIR AVEC LA BASE DE DONNEES DE SON ENTREPRISE
+		ENTREE 	: CHOIX DES ACTIONS A EFFECTUER VIA UN MENU DEROULANT
+		SORTIE	: AFFICHAGE OU MODIFICATION DES DONNEES SELON LE CHOIX
+	-->
+
+	<head>
+		<meta charset="utf-8">
+		<title>Application gestion BDD</title>
+		
+		<!-- Feuilles de css pour l'affichage à l'écran et l'affichage pour impression -->
+		<link rel="stylesheet" type="text/css" href="webApp_style.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="webApp_print.css" media="print"/>
+	</head>
+	
+	<body>
+	
+		<h1>Bienvenue !</h1>
+		<p>Bienvenue sur votre application de gestion de commandes, choisissez ce que vous voulez faire :</p>
+		
+		<!-- Menu de choix d'actions pour l'utilisateur -->
+		<nav>
+			<ul>
+				
+			<!-- AFFICHER LES DONNEES DE LA BASE -->
+				
+				<li class="menu" ><h3 id="visualiser" >Visualiser les informations de la base</h3>
+					<ul class="choix_menu" id="choix_menu_visu" >
+					
+						<!-- VOIR LES DONNEES DES CLIENTS -->
+						
+						<li id="visu_li1">Clients</li>
+							<form class="li_form" id="visu_li1_form" action="webApp_gestion_visualisation_clients.php" method="POST">
+							
+								<p>
+									<label for="numcli">Numéro du client : </label><br/>
+									<input type="text" name="numcli" />
+								</p>
+				
+								<p>
+									<label for="nomcli">Nom du client : </label><br/>
+									<input type="text" name="nomcli" />
+								</p>
+								
+								<p>
+									<label for="pnomcli">Prénom du client : </label><br/>
+									<input type="text" name="pnomcli" />
+								</p>
+								
+								<p>
+									<label for="adrcli">Adresse du client : </label><br/>
+									<input type="text" name="adrcli" />
+								</p>
+									
+								<p>
+									<label for="villecli">Ville du client : </label><br/>
+									<input type="text" name="villecli" />
+								</p>
+								
+								<p>
+									<label for="payscli">Pays du client : </label><br/>
+									<input type="text" name="payscli" />
+								</p>
+								
+								<p>
+									<input type="checkbox" name="allcli" value="allcli"> Afficher tous les clients
+								</p>
+								
+								<p>
+									<input type="submit" value="Rechercher" />
+								</p>
+							</form>
+							
+						<!-- VOIR LES DETAILS DES COMMANDES -->	
+						
+						<li id="visu_li2">Commandes (détail des factures)</li>
+							<form class="li_form" id="visu_li2_form" action="webApp_gestion_visualisation_commandes.php" method="POST">
+								<p>
+									<label for="numfacture">Numéro de facture : </label><br/>
+									<input type="text" name="numfacture" />
+								</p>
+				
+								<p>
+									<label for="numprod">Numéro de produit : </label><br/>
+									<input type="text" name="numprod" />
+								</p>
+								
+								<p>
+									<label for="qprod">Quantité de produit : </label><br/>
+									<input type="text" name="qprod" />
+								</p>
+								
+								<p>
+									<input type="checkbox" name="allcomm" value="allcomm"> Afficher toutes les commandes
+								</p>
+								
+								<p>
+									<input type="submit" value="Rechercher" />
+								</p>
+							</form>
+							
+						<!-- VOIR LES FACTURES ETABLIES -->	
+					
+						<li id="visu_li3">Factures</li>
+							<form class="li_form" id="visu_li3_form" action="webApp_gestion_visualisation_factures.php" method="POST">
+								<p>
+									<label for="idcli">Numéro de client : </label><br/>
+									<input type="text" name="idcli" />
+								</p>
+				
+								<p>
+									<label for="idfacture">Numéro de facture : </label><br/>
+									<input type="text" name="idfacture" />
+								</p>
+								
+								<p>
+									<label for="datefacture">Date de facturation : </label><br/>
+									<input type="text" name="datefacture" />
+								</p>
+								
+								<p>
+									<input type="checkbox" name="allfact" value="allfact"> Afficher toutes les factures
+								</p>
+								
+								<p>
+									<input type="submit" value="Rechercher" />
+								</p>
+								
+								<p>
+									<a href="webApp_page_impression_facture.html">Imprimer une facture</a>
+								</p>
+								
+							</form>
+							
+						<!-- VOIR LES INFORMATIONS DES PRODUITS -->	
+						
+						<li id="visu_li4">Produits</li>
+							<form class="li_form" id="visu_li4_form" action="webApp_gestion_visualisation_produits.php" method="POST">
+								<p>
+									<label for="idprod">Numéro de produit : </label><br/>
+									<input type="text" name="idprod" />
+								</p>
+				
+								<p>
+									<label for="nomprod">Nom de produit : </label><br/>
+									<input type="text" name="nomprod" />
+								</p>
+								
+								<p>
+									<label for="prixprod">Prix unitaire : </label><br/>
+									<input type="text" name="prixprod" />
+								</p>
+								
+								<p>
+									<input type="checkbox" name="allprod" value="allprod"> Afficher tous les produits
+								</p>
+								
+								<p>
+									<input type="submit" value="Rechercher" />
+								</p>
+							</form>
+					</ul>
+				</li>
+			
+				<!-- MODIFIER LES DONNEES DE LA BASE -->
+			
+				<li class="menu" ><h3 id="modifier" >Modifier la base de données</h3>
+					<ul class="choix_menu" id="choix_menu_modif" >
+						<li><a href = "webApp_page_modification.html">Ajouter/Mettre à jour des informations</a></li>
+						<li><a href = "webApp_page_suppression.html">Supprimer des données</a></li>
+						<li><a href = "webApp_page_inscription.html">Insérer un nouvel utilisateur</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		
+	<!-- Intégration du script javascript et jquery pour l'animation du menu déroulant -->
+	
+		<script src="jquery.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>

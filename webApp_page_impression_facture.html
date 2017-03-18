@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+	<!--
+		BUT 	: AFFICHER UNE FACTURE CHOISIE PAR L'UTILISATEUR
+		ENTREE 	: SAISIES DANS LE FORMULAIRE
+		SORTIE	: ENVOI DU FORMULAIRE VERS LA PAGE PHP LE GERANT (webApp_gestion_impression_factures.php)
+	-->
+	
+	<head>
+		<meta charset="utf-8">
+		<title>Impression facture</title>
+		<link rel="stylesheet" type="text/css" href="webApp_style.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="webApp_print.css" media="print"/>
+	</head>
+	
+	<body>
+				
+		<!-- FORMULAIRE POUR CHERCHER ET AFFICHER LES FACTURES ETABLIES -->							
+		<form class="li_form" id="visu_li3_form" action="webApp_gestion_impression_factures.php" method="POST">
+			<p>
+				<label for="idcli">Numéro de client : </label>
+				<input type="text" name="idcli" required />
+			</p>
+			
+			<p>
+				<label for="idfacture">Numéro de facture : </label>
+				<input type="text" name="idfacture" required />
+			</p>
+					
+			<p>
+				<label for="datefacture">Date de facturation : </label>
+				<input type="text" name="datefacture" required /><br/>
+				<span>(A mettre au format AAAA-MM-JJ.)</span>
+			</p>
+					
+			<p>
+				<input type="submit" value="Rechercher" />
+			</p>
+				
+		</form>	
+
+		<!-- Permet de revenir à la page précédente -->
+		<p><a href="webApp_page_utilisateur.html">Retourner au menu</a></p>
+	</body>
+</html>

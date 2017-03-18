@@ -1,0 +1,247 @@
+<! DOCTYPE html>
+	
+	<!--
+		BUT 	: PERMETTRE A L'UTILISATEUR DE SUPPRIMER DES DONNEES
+		ENTREE 	: INFORMATIONS SAISIES PAR L'UTILISATEUR
+		SORTIE	: APPEL DU FICHIER PHP GERANT LA SUPPRESSION DES DONNEES DANS LA BASE
+	-->
+	
+	<head>
+		<meta charset="utf-8">
+		<title>Application gestion BDD</title>
+		<link rel="stylesheet" type="text/css" href="webApp_style.css" media="screen"/>
+	</head>
+	
+	<body>
+		<h3>Ici vous pouvez supprimer des données en cliquant sur la catégorie de votre choix.</h3>
+		<p>
+			Avant de supprimer un client ou un produit, vérifiez qu'il n'y a pas de référence à celui-ci dans une facture ou 
+			un détail de facture. Commencez toujours par le détail de facture, puis la facture et enfin les deux autres.
+		</p>
+		
+		<ul class="menu" id = "maj"  >
+
+		<!-- CLIENTS -->
+			
+			<li id="visu_li1">Clients</li>
+				
+				<div class="li_form" id="visu_li1_form" >
+					<form action="webApp_gestion_suppression_clients.php" method="POST">
+						<div style = "margin : 20px;" >
+							<table style = "border : 3px red solid;" >
+								<tr>
+									<th>
+										Si vous connaissez le numéro d'identifiant unique
+									</th>
+								</tr>
+								
+								<tr>
+									<td>
+										<label for="numcli">Numéro du client : </label><br/>
+										<input type="text" name="numcli" required />
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<input type="submit" value="Envoyer" />
+									</td>
+								</tr>
+							</table>
+						</div>
+					</form>
+					
+					<form action="webApp_gestion_suppression_clients.php" method="POST">
+						<div style = "margin : 20px;" >
+							<table style = "border : 3px orange solid;">
+								<tr>
+									<th>
+										Si vous n'êtes pas sûr du numéro client
+									</th>
+								</tr>
+								
+								<tr>
+									<td>
+										<label for="nomcli">Nom du client : </label><br/>
+										<input type="text" name="nomcli" required />
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<label for="pnomcli">Prénom du client : </label><br/>
+										<input type="text" name="pnomcli" required />
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<label for="adrcli">Adresse du client : </label><br/>
+										<input type="text" name="adrcli" required/>
+									</td>				
+								</tr>
+								
+								<tr>
+									<td>
+										<label for="cpcli">Code postal du client : </label><br/>
+										<input type="text" name="cpcli" required />
+									</td>
+								</tr>
+									
+								<tr>
+									<td>
+										<label for="villecli">Ville du client : </label><br/>
+										<input type="text" name="villecli" required />
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<label for="payscli">Pays du client : </label><br/>
+										<input type="text" name="payscli" required/>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<input type="submit" value="Envoyer" />
+									</td>
+								</tr>
+							</table>
+						</div>
+					</form>
+				</div>
+				
+		<!-- COMMANDES -->	
+			
+			<li id="visu_li2">Commandes</li>
+				<form class="li_form" id="visu_li2_form" action="webApp_gestion_suppression_commandes.php" method="POST">
+					
+					
+					<div style = "margin : 20px;" >
+						<table style = "border : 3px yellow solid;" >
+							<tr>
+								<th>
+									Suppression du détail d'une facture
+								</th>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="numfacture">Numéro de facture : </label><br/>
+									<input type="text" name="numfacture" required />
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="numprod">Numéro de produit : </label><br/>
+									<input type="text" name="numprod" required />
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="quantite">Quantité facturée : </label><br/>
+									<input type="text" name="quantite" required/>
+								</td>				
+							</tr>
+							
+							<tr>
+								<td>
+									<input type="submit" value="Envoyer" />
+								</td>
+							</tr>
+						</table>
+					</div>
+				</form>
+				
+		<!-- FACTURES -->	
+		
+			<li id="visu_li3">Factures</li>
+				<form class="li_form" id="visu_li3_form" action="webApp_gestion_suppression_factures.php" method="POST">
+					
+					<div style = "margin : 20px;" >
+						<table style = "border : 3px orange solid;" >
+							<tr>
+								<th>
+									Suppression de facture
+								</th>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="numfacture">Numéro de facture : </label><br/>
+									<input type="text" name="numfacture" required />
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="datefacture">Date de facturation : </label><br/>
+									<input type="text" name="datefacture" required />
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="numcli">Numéro de client : </label><br/>
+									<input type="text" name="numcli" required/>
+								</td>				
+							</tr>
+							
+							<tr>
+								<td>
+									<input type="submit" value="Envoyer" />
+								</td>
+							</tr>
+						</table>
+					</div>
+				</form>
+			
+		<!-- PRODUITS -->	
+				
+			<li id="visu_li4">Produits</li>
+				<form class="li_form" id="visu_li4_form" action="webApp_gestion_suppression_produits.php" method="POST">
+					
+					<div style = "margin : 20px;" >
+						<table style = "border : 3px red solid;" >
+							<tr>
+								<th>
+									Supprimer un produit du catalogue
+								</th>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="numprod">Numéro de produit : </label><br/>
+									<input type="text" name="numprod" required />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="prixprod">Prix hors taxe du produit : </label><br/>
+									<input type="text" name="prixprod" required />
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<input type="submit" value="Envoyer" />
+								</td>
+							</tr>
+						</table>
+					</div>
+				</form>
+		</ul>
+		
+		<footer>
+			<a href = "webApp_page_utilisateur.html" >Revenir au menu principal.</a>
+		</footer>
+		
+		<!-- Intégration du script javascript et jquery pour l'animation du menu déroulant -->
+		<script src="jquery.min.js"></script>
+		<script src="script.js"></script>
+		
+	</body>
+</html>

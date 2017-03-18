@@ -1,0 +1,13 @@
+/* Les éléments qui ne seront pas affichés  */
+h1, p, nav
+{ 
+	display :none;
+}
+
+/* Mise en page du tableau avec les données */
+table
+{
+	margin : auto;
+	background-color : white;
+}
+

@@ -1,0 +1,21 @@
+h1
+{
+	color : purple;
+}
+
+ul li ul li
+{
+	font-size : 20px;
+}
+
+#maj th
+{
+	border : solid green 1px;
+}
+
+#maj td
+{
+	border-right : solid green 1px;
+	border-left : solid green 1px;
+	padding : 10px;
+}
